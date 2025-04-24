@@ -1,22 +1,21 @@
-
 export default function ProjectCard({ project }) {
-    return (
-      <div className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-        <h3 className="text-xl font-semibold text-blue-700 mb-2">{project.name}</h3>
-        <div className="text-gray-600 mb-1">
-          <span className="font-medium">Location:</span> {project.location}
-        </div>
-        <div className="text-gray-600 mb-1">
-          <span className="font-medium">Price Range:</span> {project.priceRange}
-        </div>
-        <div className="text-gray-600 mb-1">
-          <span className="font-medium">Builder:</span> {project.builder}
-        </div>
-        {project.coordinates && (
-          <div className="text-gray-600 text-sm mt-2">
-            <span className="font-medium">Coordinates:</span> {project.coordinates.lat.toFixed(4)}, {project.coordinates.lng.toFixed(4)}
-          </div>
-        )}
+  return (
+    <div className="project-card">
+      <h3 className="project-title">{project.name}</h3>
+      <div className="project-detail">
+        <span className="project-label">Location:</span> {project.location}
       </div>
-    );
-  }
+      <div className="project-detail">
+        <span className="project-label">Price Range:</span> {project.priceRange}
+      </div>
+      <div className="project-detail">
+        <span className="project-label">Builder:</span> {project.builder}
+      </div>
+      {project.coordinates && (
+        <div className="project-detail text-sm mt-2">
+          <span className="project-label">Coordinates:</span> {project.coordinates.lat.toFixed(4)}, {project.coordinates.lng.toFixed(4)}
+        </div>
+      )}
+    </div>
+  );
+}

@@ -66,23 +66,26 @@ export default function CityProjects() {
     <div className="min-h-screen bg-gray-100">
       <main className="container mx-auto py-8 px-4">
         {/* Search Input Bar */}
-        <div className="mb-6 flex justify-center">
-          <input
-            type="text"
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-            placeholder="Enter city (e.g., Hyderabad)"
-            className="px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none w-72"
-          />
-          <button
-            onClick={handleCitySearch}
-            className="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700"
-          >
-            Search
-          </button>
-        </div>
+        <div className="search-container">
+  <div className="search-box">
+    <input
+      type="text"
+      value={searchInput}
+      onChange={(e) => setSearchInput(e.target.value)}
+      placeholder="Enter city (e.g., Hyderabad)"
+      className="search-input"
+    />
+    <button
+      onClick={handleCitySearch}
+      className="search-button"
+    >
+      Search
+    </button>
+  </div>
+</div>
 
-        <h1 className="text-3xl font-bold text-center mb-8 text-blue-800">
+
+        <h1 className="page-heading">
           Real Estate Projects in {cityName?.charAt(0).toUpperCase() + cityName?.slice(1)}
         </h1>
 
@@ -91,7 +94,7 @@ export default function CityProjects() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-xl font-semibold mb-4">Available Projects</h2>
+              <h2 className="section-heading">Available Projects</h2>
               {projects.length === 0 && !loading && (
                 <p className="text-gray-500">No projects found for this city.</p>
               )}
